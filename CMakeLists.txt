@@ -7,7 +7,7 @@ project (SCREENRC)
 set (SCREENRC_VERSION_MAJOR 1)
 set (SCREENRC_VERSION_MINOR 0)
 
-set (SCREENRC_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/etc/")
+set (SCREENRC_INSTALL_DIR "/etc/")
 
 # Copy files with 644 permissions
 install(FILES screenrc.custom
