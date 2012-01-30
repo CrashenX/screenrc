@@ -69,7 +69,7 @@ hardstatus alwayslastline
 termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 # use this for the hard status string
 #hardstatus string "%h%? users: %u%?"
-backtick 1 0 0 /sbin/batteryleft
+backtick 1 0 0 /usr/sbin/batteryleft
 hardstatus string '%{= kG}[ %{W}%H %1` %{= kG}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{B}%Y-%m-%d %{W}%C%A %{g}]'
 
 # An alternative hardstatus to display a bar at the bottom listing the

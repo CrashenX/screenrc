@@ -1,0 +1,24 @@
+#!/bin/bash
+while [ true ]; do
+  #echo `acpi | awk ' BEGIN { FS = ",|:| "} ; { print $8 ":" $9 }'`;
+  #echo -e  `acpi | awk ' BEGIN { FS = ",|:| "} ; { battery = $8 ":" $9 " (" $6 ")"  };\
+  #{ if ($4 == "Charging") { print "\\\e[1;32m" battery "\\\e[0m" }\
+  #  else { print "\\\e[1;31m" battery "\\\e[0m" } }; '` ;
+  echo -e  `acpi |
+    awk ' BEGIN { FS = ",|:| "} ;\
+    { min = $8 ":" $9 };\
+    { if (min == ":") { min = "00:00" } };
+    { perc = $6 };\
+    {\
+      if ($4 == "Charging" || $4 == "Full") {\
+        print "\005{kw}(\005{kg}" min " \005{kg}" perc "\005{kw})"\
+      }\
+      else if ($4 == "Unknown") {\
+        print "\005{kw}(\005{kr}check battery\005{kw})"\
+      }\
+      else {\
+        print "\005{kw}(\005{kr}" min " \005{kr}" perc "\005{kw})"\
+      }\
+    }; '` ;
+sleep 60;
+done
