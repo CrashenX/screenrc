@@ -12,4 +12,7 @@ set (SCREENRC_INSTALL_DIR "/etc/")
 # Copy files with 644 permissions
 install(FILES screenrc.custom
     DESTINATION ${SCREENRC_INSTALL_DIR})
+# Copy files with 755 permissions
+install(PROGRAMS batteryleft
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/sbin/)
 
